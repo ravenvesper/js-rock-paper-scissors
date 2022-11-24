@@ -10,21 +10,24 @@ function getComputerChoice() {
     return randomizer; //returns a choice with the variable "randomizer"
 }
 
-let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase(); //asks a user for an input and converts it to lower case 
-let computerSelection = getComputerChoice(); //declares the previous function
-
-function oneRound(playerSelection, computerSelection) {
+function oneRound() {
+    let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase(); //asks a user for an input and converts it to lower case 
+    let computerSelection = getComputerChoice(); //declares the previous function
 
     if (playerSelection === computerSelection) {
-        return "Draw!" //if the user's input is equal to computer selection, it returns draw
+        alert("Draw! No points for anyone."); //if the user's input is equal to computer selection, it returns draw
     } else if (playerSelection === "rock" && computerSelection === "Paper") {
-        return "You lose!" //if user input is 'rock' and computer is 'paper', user loses
+        alert("You lose! Computer gains a point.");
+        computerScore++; //if user input is 'rock' and computer is 'paper', user loses
     } else if (playerSelection === "paper" && computerSelection === "Scissors") {
-        return "You lose!" //if user input is 'paper' and computer is 'scissors', user loses
+        alert("You lose! Computer gains a point.");
+        computerScore++; //if user input is 'paper' and computer is 'scissors', user loses
     } else if (playerSelection === "scissors" && computerSelection === "Rock") {
-        return "You lose!" //if user input is 'scissors' and computer is 'rock', user loses
+        alert("You lose! Computer gains a point.");
+        computerScore++; //if user input is 'scissors' and computer is 'rock', user loses
     } else {
-        return "You win!" //if none of the above is the case, player wins
+        alert("You win! You earn a point!");
+        playerScore++; //if none of the above is the case, player wins
     }
 }
 
@@ -32,7 +35,17 @@ let playerScore = 0; //player score starting point
 let computerScore = 0; //computer score starting point
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        oneRound(i); //loop function 5 times
+    for (let i = 0; i < 5; i++)
+    oneRound(i);
 }
+
+function isGameOver() {
+    if (playerScore === 5) {
+        console.log("You win the game!");
+    } else {
+        console.log("Better luck next time.");
+    }
 }
+
+game();
+isGameOver();
