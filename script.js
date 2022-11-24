@@ -46,6 +46,3 @@ function isGameOver() {
         console.log("Better luck next time.");
     }
 }
-
-game();
-isGameOver();
