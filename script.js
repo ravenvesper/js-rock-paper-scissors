@@ -24,19 +24,22 @@ function oneRound(playerSelection, computerSelection) {
     } else if (playerSelection === "scissors" && computerSelection === "Rock") {
         return "You lose!"
     } else {
-        return "You win!" 
+        return "You win!"
     }
 }
+
+let playerScore = 0;
+let computerScore = 0;
 
 function game() {
-    oneRound(); //declare the function
+    for (i = 1; i <= 5; i++)
+        oneRound(i);
 
-    for (let i = 0; i <= 5; i++) { //loop for five rounds
-        if (i < 5) {
-            oneRound();
-        } else if (i === 5) {
-            console.log("End of round.")
-        }
+    if (oneRound() === "You lose!") {
+        computerScore++
+    } else {
+        playerScore++
     }
 }
 
+console.log(oneRound());
