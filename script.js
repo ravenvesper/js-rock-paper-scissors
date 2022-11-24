@@ -18,28 +18,21 @@ function oneRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Draw!" //if the user's input is equal to computer selection, it returns draw
     } else if (playerSelection === "rock" && computerSelection === "Paper") {
-        return "You lose!" 
+        return "You lose!" //if user input is 'rock' and computer is 'paper', user loses
     } else if (playerSelection === "paper" && computerSelection === "Scissors") {
-        return "You lose!"
+        return "You lose!" //if user input is 'paper' and computer is 'scissors', user loses
     } else if (playerSelection === "scissors" && computerSelection === "Rock") {
-        return "You lose!"
+        return "You lose!" //if user input is 'scissors' and computer is 'rock', user loses
     } else {
-        return "You win!"
+        return "You win!" //if none of the above is the case, player wins
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
+let playerScore = 0; //player score starting point
+let computerScore = 0; //computer score starting point
 
 function game() {
-    for (i = 1; i <= 5; i++)
-        oneRound(i);
-
-    if (oneRound() === "You lose!") {
-        computerScore++
-    } else {
-        playerScore++
-    }
+    for (let i = 0; i < 5; i++) {
+        oneRound(i); //loop function 5 times
 }
-
-console.log(oneRound());
+}
